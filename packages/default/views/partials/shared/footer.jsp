@@ -5,10 +5,15 @@
       <div class="col-xs-8">
         <img src='${bundle.location}/packages/default/images/ProductName-Request.png' class='desaturate' height="40"/>
       </div>
-      <div class="build col-xs-4 text-right">
-        <div>Build Date: ${buildDate}</div>
-        <div>Build Number: ${buildNumber}</div>
-        <div>Version: ${buildVersion}</div>
+      <div class="col-xs-4">
+        <dl class="dl-horizontal">
+          <dt>Build Date:</dt>
+          <dd>${buildDate}</dd>
+          <dt>Build Number: </dt>
+          <dd>${buildNumber}</dd>
+          <dt>Version:</dt>
+          <dd>${buildVersion}</dd>
+        </dl>
       </div>
     </div>
 </footer>

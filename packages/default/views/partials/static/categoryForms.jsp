@@ -1,6 +1,7 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../../../package/initialization.jspf" %>
 <%-- For each of the categories --%>
+
 <c:forEach items="${kapp.categories}" var="category">
     <%-- If the category is not hidden, and it contains at least 1 form --%>
     <c:if test="${fn:toLowerCase(category.getAttribute('Hidden').value) ne 'true' && not empty category.forms}">
@@ -21,8 +22,8 @@
     </c:if>
 
 </c:forEach>
-<div class="category">
-    <h3 class='uncategorized'>
+<div class="category uncategorized">
+    <h3>
         Uncategorized Forms
     </h3>
     <div class="col-xs-12">

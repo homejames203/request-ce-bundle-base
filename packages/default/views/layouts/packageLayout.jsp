@@ -4,9 +4,6 @@
 
     <bundle:variable name="head">
 
-        <bundle:stylepack>
-            <bundle:style src="${bundle.packagePath}/css/default.css "/>
-        </bundle:stylepack>
         <bundle:scriptpack>
             <bundle:script src="${bundle.packagePath}/libraries/jquery-datatables/jquery.dataTables.js" />
             <bundle:script src="${bundle.packagePath}/js/catalog.js" />
@@ -16,12 +13,12 @@
 
     </bundle:variable>
 
-    <div class="container">
+    <main>
         <c:import url="${bundle.packagePath}/views/partials/shared/navbar.jsp" charEncoding="UTF-8"/>
 
         <bundle:yield/>
 
-    </div>
+    </main>
 
     <c:import url="${bundle.packagePath}/views/partials/shared/footer.jsp" charEncoding="UTF-8"/>
 

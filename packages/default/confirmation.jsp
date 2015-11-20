@@ -5,7 +5,8 @@
         <title>${app:escape(form.name)}</title>
     </bundle:variable>
     <section class="page">
-      <div class="page-header">
+      <div class="container">
+              <div class="page-header">
         <h1>${app:escape(form.name)}</h1>
       </div>
       <div class='row'>
@@ -15,5 +16,7 @@
           <p><a href="${bundle.kappLocation}">Return to the catalog</a></p>
         </div>
       </div>
+      </div>
+
     </section>
 </bundle:layout>

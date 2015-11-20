@@ -1,23 +1,24 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="package/initialization.jspf" %>
-
 <bundle:layout page="views/layouts/packageLayout.jsp">
     <bundle:variable name="head">
         <title>Kinetic Data ${app:escape(kapp.name)}</title>
     </bundle:variable>
-    <section class="menu">
-        <ul class="nav nav-pills">
-            <c:set var="pageHome" value="${kapp.getForm('home')}" scope="page"/>
-
-            <li role="presentation" class="active">
-                <a href="#tab-home" aria-controls="tab-home" role="tab" data-toggle="tab">Home</a>
-            </li>
-            <li role="presentation">
-                <a href="#tab-requests" aria-controls="tab-requests" role="tab" data-toggle="tab">My Requests</a>
-            </li>
-        </ul>
-    </section>
-    <div class="tab-content">
+    <div class="wrap menu">
+        <nav class="container">
+            <ul class="nav nav-pills">
+                <c:set var="pageHome" value="${kapp.getForm('home')}" scope="page"/>
+                <li role="presentation" class="active">
+                    <a href="#tab-home" aria-controls="tab-home" role="tab" data-toggle="tab">Home</a>
+                </li>
+                <li role="presentation">
+                    <a href="#tab-requests" aria-controls="tab-requests" role="tab" data-toggle="tab">My Requests</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tab-home">
             <div class="row">
                 <div class="col-xs-12">
@@ -34,8 +35,7 @@
             <c:import url="views/partials/static/submissionsByKapp.jsp" charEncoding="UTF-8" />
         </div>
     </div>
-
-
-
+    
+    </div>
     <app:bodyContent/>
 </bundle:layout>
