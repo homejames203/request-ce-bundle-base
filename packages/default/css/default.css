@@ -130,6 +130,34 @@ section.page {
   background-color: #ffffff;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *   Nav Pills Elements
+ *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.nav-pills > li > a {
+  border-radius: 0;
+  color: #808080;
+  padding: 10px 1em;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #333333;
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 4px solid #aaaaaa;
+}
+.nav-pills > li > a:hover {
+  color: #333333;
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 4px solid #cccccc;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background-color: transparent;
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *   Form Elements
