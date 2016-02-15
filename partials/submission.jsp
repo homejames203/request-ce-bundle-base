@@ -27,25 +27,42 @@
             </div>
         </div>
         <div class="col-md-8 col-xs-12 ">
-            <div class="timeline-block">
-                <c:forEach var="run" items="${TaskRuns.find(submission)}">
-                <ul>
+            <!-- The time line -->
+            <c:forEach var="run" items="${TaskRuns.find(submission)}">
+                <ul class="timeline">
+                    <!-- timeline time label -->
+                    <li class="time-label">
+                        <span class="bg-red">
+                            ${submission.submittedAt}
+                        </span>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
                     <c:forEach var="task" items="${run.tasks}">
-                        <li class="timeline-status">
-                            <div class="timeline-status-content">
-                                <h4>${text.escape(task.name)}</h4>
-                                <h5>${text.escape(task.createdAt)}</h5>
-                                <ul>
+                        <li>
+                            <i class="fa fa-envelope bg-blue"></i>
+                            <div class="timeline-item">
+                                <span class="time"><i class="fa fa-clock-o"></i> ${text.escape(task.createdAt)}</span>
+                                <h3 class="timeline-header"><a href="#">${text.escape(task.name)}</a> FOO </h3>
+                                <div class="timeline-body">
                                     <c:forEach var="entry" items="${task.messages}">
                                         <li>${text.escape(entry.message)}</li>
                                     </c:forEach>
-                                </ul>
+                                </div>
+                                <div class="timeline-footer">
+                                    <a class="btn btn-primary btn-xs">Read more</a>
+                                    <a class="btn btn-danger btn-xs">Delete</a>
+                                </div>
                             </div>
                         </li>
-                    </c:forEach>
+                    </c:forEach> <!-- END timeline item -->
+                    <li>
+                      <i class="fa fa-clock-o bg-gray"></i>
+                    </li>
                 </ul>
-                </c:forEach>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </section>
+
+        
