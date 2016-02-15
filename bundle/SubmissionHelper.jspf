@@ -15,6 +15,19 @@
         return submissionsQueryOptions("Approval");
     }
 
+    public Map<String,String[]> searchResultsQueryOptions(String wasFound) {
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("limit", new String[] {"999"});
+        if( wasFound.equals("true") ) {
+          searchOptions.put("values[Results Found]", new String[] {"true"});
+        } 
+        if ( wasFound.equals("false") ) {
+          searchOptions.put("values[Results Found]", new String[] {"false"});
+        }
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
+
     public Map<String,String[]> submissionsQueryOptions(String formType) {
       Identity identity = (Identity) request.getAttribute("identity");
       Map<String,String[]> searchOptions = new HashMap<>();
