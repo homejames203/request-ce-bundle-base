@@ -7,7 +7,7 @@
 <section class="content-header">
     <h1>
         Enterprise Request Management System
-        <small>Version 2.0</small>
+        <small>Version ${kapp.getAttributeValue('KAPP Version')}</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#">

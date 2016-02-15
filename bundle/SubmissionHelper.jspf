@@ -3,13 +3,13 @@
 
     private HttpServletRequest request;
 
-	public SubmissionHelper(HttpServletRequest request) {
-		this.request = request;
-	}
+  	public SubmissionHelper(HttpServletRequest request) {
+  		this.request = request;
+  	}
 
-	public Map<String,String[]> requestsQueryOptions() {
-        return submissionsQueryOptions("Service");
-	}
+  	public Map<String,String[]> requestsQueryOptions() {
+          return submissionsQueryOptions("Service");
+  	}
 
     public Map<String,String[]> approvalsQueryOptions() {
         return submissionsQueryOptions("Approval");

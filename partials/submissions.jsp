@@ -36,8 +36,8 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <td>${submission.createdBy}</td>
-                        <td>${submission.createdAt}</td>
+                        <td>${space.getUser(submission.createdBy).displayName}</td>
+                        <td><fmt:formatDate type="date" value="${submission.createdAt}" dateStyle="medium"/></td>
                         <td><span class="label label-success">${submission.coreState}</span></td>
                     </tr>
                 </c:forEach>
