@@ -45,6 +45,6 @@
         </table>
     </div><!-- /.box-body -->
     <div class="box-footer text-center">
-        <a href="${bundle.kappLocation}?page=requests" class="uppercase">View All Requests</a>
+        <a href="${bundle.kappLocation}?page=submissions&type=request" class="uppercase">View All Requests</a>
     </div><!-- /.box-footer -->
 </div>
