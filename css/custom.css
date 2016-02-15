@@ -37,5 +37,9 @@ section.content section.box-footer button:not(:first-child){
   color:red;
 }
 
+#requestDetails{
+    background-color:lightgray;
+}
+
 
     

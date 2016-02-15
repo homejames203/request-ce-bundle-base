@@ -23,7 +23,7 @@
                     <th>Date Submitted</th>
                     <th>Status</th>
                 </tr>
-                <c:forEach items="${submissionsList}" var="submission">
+                <c:forEach items="${submissionsList}" begin="0" end="4" var="submission">
                     <tr>
                         <td>${text.escape(submission.form.name)}</td>
                         <td>

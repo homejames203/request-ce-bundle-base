@@ -1,16 +1,20 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
 <c:set var="submission" value="${Submissions.retrieve(param.submission_id)}" scope="page"/>
-<section class="menu">
-    <div class="row">
-        <div class="col-xs-12">
-            <h3>
-            <a href='${bundle.kappLocation}/#tab-requests'>Return to catalog</a>
-            </h3>
-        </div>
-    </div>
+<section class="content-header">
+    <h1>
+        ${submission.label}
+        <small>${submission.submittedAt}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#">
+            <i class="fa fa-home"></i> 
+            Home</a>
+        </li>
+        <li class="active">${submission.label}</li>
+    </ol>
 </section>
-<section class="timeline">
+<section class="content">
     <div class="row">
         <div class="col-md-4 col-xs-12 ">
             <div class="submission-meta">

@@ -11,18 +11,20 @@
       <h1>
          ${text.escape(form.name)}
       </h1>
-      <ol class="breadcrumb">
-         <li><a href="${bundle.kappLocation}">
-            <i class="fa fa-home"></i> 
-            Home</a>
-         </li>
-         <li class="active">${text.escape(form.name)}</li>
-      </ol>
+      <c:if test="${param.review != null && pages.size() > 1}">
+         <ol class="breadcrumb">
+            <li><a href="${bundle.kappLocation}">
+               <i class="fa fa-home"></i> 
+               Home</a>
+            </li>
+            <li class="active">${text.escape(form.name)}</li>
+         </ol>
+      </c:if>
    </section>
    <section class="content page " data-page="${page.name}">
       <c:if test="${param.review != null && pages.size() > 1}">
-      <c:import url="partials/review.jsp" charEncoding="UTF-8"></c:import>
-   </c:if>
+         <c:import url="partials/review.jsp" charEncoding="UTF-8"></c:import>
+      </c:if>
    <div class="errors"></div>
    <div class="box box-primary">
       <app:bodyContent/>
