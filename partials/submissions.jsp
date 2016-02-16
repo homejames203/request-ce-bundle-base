@@ -1,8 +1,8 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
 
-<div class="box">
-    <div class="box-header">
+<div class="box box-primary">
+    <div class="box-header with-border">
         <h3 class="box-title">My Requests</h3>
         <div class="box-tools">
             <div class="input-group" style="width: 150px;">

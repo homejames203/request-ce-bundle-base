@@ -40,6 +40,11 @@ section.content section.box-footer button:not(:first-child){
 #requestDetails{
     background-color:lightgray;
 }
-
+ div.formDescription div.icon img {
+    max-width: 100px;
+    max-height: 100px;
+    height: auto;
+    float: left;
+ }
 
     

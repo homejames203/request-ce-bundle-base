@@ -27,6 +27,22 @@
         request.setAttribute("searchOptions", searchOptions);
         return searchOptions;
     }
+    
+    public Map<String,String[]> serviceReviewQueryOptions(String formSlug) {
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("limit", new String[] {"999"});
+        searchOptions.put("values[Form Slug]", new String[] {formSlug});
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
+
+    public Map<String,String[]> broadcastAlertsQueryOptions() {
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("limit", new String[] {"999"});
+        searchOptions.put("values[Status]", new String[] {"Active"});
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
 
     public Map<String,String[]> submissionsQueryOptions(String formType) {
       Identity identity = (Identity) request.getAttribute("identity");

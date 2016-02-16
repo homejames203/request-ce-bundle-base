@@ -2,7 +2,7 @@
 <%@include file="../bundle/initialization.jspf" %>
 <bundle:layout page="${bundle.path}/layouts/layout.jsp">
 	<bundle:variable name="head">
-		<title>${text.escape(space.name)} Profile</title>
+		<title>${kapp.getAttribute('Company Name').value} - Profile</title>
 	</bundle:variable>
 	<div class="container">
 		<div class="page-header">

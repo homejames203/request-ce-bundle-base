@@ -1,5 +1,6 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
+<c:set var="broadcastAlerts" value="${Submissions.searchByForm(space.getKapp('helper').getForm('broadcast-alerts'), SubmissionHelper.broadcastAlertsQueryOptions())}"/>
 <header class="main-header">
     <!-- Logo -->
     <a href="${bundle.kappLocation}" class="logo">
@@ -104,41 +105,33 @@
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
+          <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning">${fn:length(broadcastAlerts)}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have ${fn:length(broadcastAlerts)} notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
+                  <c:forEach var="broadcastAlert" items="${broadcastAlerts}">
+                    <li><!-- start message -->
+                      <a href="#">
+                        <div class="pull-left">
+                          <i class="fa fa-warning text-yellow" alt="Alert"></i>
+                        </div>
+                        <h4>
+                          ${broadcastAlert.getValue('Subject')}
+                          <small>
+                            <i class="fa fa-clock-o"></i>
+                            <fmt:formatDate value="${broadcastAlert.createdAt}" timeStyle="short"/>
+                          </small>
+                        </h4>
+                        <p>${broadcastAlert.getValue('Message')}</p>
+                      </a>
+                    </li><!-- end message -->
+                  </c:forEach>
                 </ul>
               </li>
               <li class="footer"><a href="#">View all</a></li>
@@ -245,15 +238,3 @@
 
     </nav>
 </header>
-
-<!--         <c:if test="${kapp != null}">
-            <div class="navbar-form" role="search" style='margin-right:1em;'>
-                <form action="${bundle.kappLocation}" method="GET" role="form">
-                    <div class="form-group">
-                            <input type="hidden" value="search" name="page">
-                            <input  type="text" class="states form-control predictiveText x" name="q" placeholder="Search Forms…" autocomplete="off" autofocus="autofocus">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </c:if> -->

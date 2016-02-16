@@ -84,6 +84,8 @@
             </c:otherwise>
         </c:choose>
     </head>
+
+
     <body class="hold-transition sidebar-mini skin-black-light">
         <div class="wrapper">
             <c:if test="${not empty identity}">
