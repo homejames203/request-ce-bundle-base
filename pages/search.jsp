@@ -49,7 +49,11 @@
                             </c:if>
                         </c:forEach>
                         <c:if test="${found == 'false'}">
-                            <h5>No results found for ${param['q']}.</h5>
+                            <div class="box box-solid">
+                                <div class="box-body">
+                                    <h5>No results found for ${param['q']}.</h5>
+                                </div>
+                            </div>
                         </c:if>
                         <input type="hidden" id="resultsFound" value="${found}"/>
                     </ul>
