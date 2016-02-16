@@ -1,3 +1,9 @@
+<!-- This page is used for displaying forms in a uniform way across multiple pages in the catalog
+ ** Requirements to use **
+    1. A form variable being set (scope=request) before including this page
+    2. A service-reviews form to be setup with the following Text Elements (Review / Rating / Form Slug / Form Name)
+ -->
+
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
 

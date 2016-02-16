@@ -34,23 +34,30 @@
         </ol>
     </section>
     <section class="content">
-        <c:if test="${text.isNotBlank(param['q'])}">
-            <ul>
-                <c:set var="found" value="false" />
-                <c:forEach items="${kapp.forms}" var="form">
-                    <c:if test="${text.equals(form.type.name, 'Service') || text.equals(form.type.name, 'Template')}">
-                        <c:if test="${text.contains(text.downcase(form.name), text.downcase(param['q'])) || text.contains(text.downcase(form.description), text.downcase(param['q']))}">
-                            <c:set var="found" value="true"/>
-                            <c:set var="form" scope="request" value="${form}"/>
-                            <c:import url="${bundle.path}/partials/formCard.jsp" charEncoding="UTF-8"/>
+        <div class="row">
+            <div class="col-md-8">
+                <c:if test="${text.isNotBlank(param['q'])}">
+                    <ul>
+                        <c:set var="found" value="false" />
+                        <c:forEach items="${kapp.forms}" var="form">
+                            <c:if test="${text.equals(form.type.name, 'Service') || text.equals(form.type.name, 'Template')}">
+                                <c:if test="${text.contains(text.downcase(form.name), text.downcase(param['q'])) || text.contains(text.downcase(form.description), text.downcase(param['q']))}">
+                                    <c:set var="found" value="true"/>
+                                    <c:set var="form" scope="request" value="${form}"/>
+                                    <c:import url="${bundle.path}/partials/formCard.jsp" charEncoding="UTF-8"/>
+                                </c:if>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${found == 'false'}">
+                            <h5>No results found for ${param['q']}.</h5>
                         </c:if>
-                    </c:if>
-                </c:forEach>
-                <c:if test="${found == 'false'}">
-                    <h5>No results found for ${param['q']}.</h5>
+                        <input type="hidden" id="resultsFound" value="${found}"/>
+                    </ul>
                 </c:if>
-                <input type="hidden" id="resultsFound" value="${found}"/>
-            </ul>
-        </c:if>
+            </div>
+            <div class="col-md-4">
+                <c:import url="${bundle.path}/partials/popularRequests.jsp" charEncoding="UTF-8"/>
+            </div>
+        </div>
     </section>
 </bundle:layout>

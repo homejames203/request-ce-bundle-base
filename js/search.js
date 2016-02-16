@@ -1,6 +1,4 @@
 $(function(){
-
- 
   var payload = JSON.stringify({"values": {"Search Query": bundle.urlParam('q'),"Results Found": $('#resultsFound').val()}});
   $.ajax({
       method: 'POST',
@@ -18,6 +16,4 @@ $(function(){
         console.log('Search Submission Failed');
       }
   });
-
-
 });

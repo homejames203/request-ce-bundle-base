@@ -36,7 +36,7 @@ request.setAttribute("category", category);
                 <c:import url="${bundle.path}/partials/formCard.jsp" charEncoding="UTF-8"/>
             </c:forEach>
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <div class="box box-solid">
                     <div class="box-header with-border">
                         <h3 class="box-title">My ${text.escape(kapp.getCategory(category).name)} Tickets</h3>

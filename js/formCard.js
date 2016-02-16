@@ -1,12 +1,3 @@
-$(function(){
-	$('#sstars').on('starrr:change', function(e, value){
-		$('#count').html(value);
-	});
-
-	$('#sstars-existing').on('starrr:change', function(e, value){
-		$('#count-existing').html(value);
-	});
-});
 
 $(function() {
 	$('.star-existing').each(function(){
