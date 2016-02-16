@@ -1,5 +1,3 @@
 $(function(){ 
-	$(".knob").knob();
+   $(".knob").knob();
 });
-
-
