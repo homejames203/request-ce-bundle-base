@@ -8,6 +8,7 @@
       <title>${text.escape(form.name)}</title>
    </bundle:variable>
    <section class="content-header">
+      <img class="formlogo pull-left" src="${bundle.location}/images/forms/${form.getAttributeValue('Image')}"/>
       <h1>
          ${text.escape(form.name)}
       </h1>

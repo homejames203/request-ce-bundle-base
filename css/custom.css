@@ -56,5 +56,10 @@ section.content section.box-footer button:not(:first-child){
     cursor: pointer;
     color: #FFD119; 
 }
+img.formlogo{
+    max-height:50px;
+    max-width:50px;
+    margin-right:15px;
+}
 
     
