@@ -2,6 +2,8 @@
 <%@include file="../bundle/initialization.jspf" %>
 <bundle:layout page="${bundle.path}/layouts/layout.jsp">
     <bundle:scriptpack>
+        <bundle:script src="${bundle.location}/js/formCard.js" />
+        <bundle:script src="${bundle.location}/libraries/starrr/starrr.js" />
         <bundle:script src="${bundle.location}/js/search.js" />
     </bundle:scriptpack>
     <bundle:variable name="head">
@@ -39,16 +41,8 @@
                     <c:if test="${text.equals(form.type.name, 'Service') || text.equals(form.type.name, 'Template')}">
                         <c:if test="${text.contains(text.downcase(form.name), text.downcase(param['q'])) || text.contains(text.downcase(form.description), text.downcase(param['q']))}">
                             <c:set var="found" value="true"/>
-                            <li>
-                                <h4>
-                                    <a href="${bundle.kappLocation}/${form.slug}">
-                                       ${form.name}
-                                    </a>
-                                </h4>
-                                <c:if test="${not empty form.description}">
-                                    <p>${form.description}</p>
-                                </c:if>
-                            </li>
+                            <c:set var="form" scope="request" value="${form}"/>
+                            <c:import url="${bundle.path}/partials/formCard.jsp" charEncoding="UTF-8"/>
                         </c:if>
                     </c:if>
                 </c:forEach>

@@ -47,4 +47,14 @@ section.content section.box-footer button:not(:first-child){
     float: left;
  }
 
+.star {
+    display: inline-block; 
+}
+.star i {
+    font-size: 16px;
+    padding: 0 1px;
+    cursor: pointer;
+    color: #FFD119; 
+}
+
     
