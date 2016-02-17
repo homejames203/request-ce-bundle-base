@@ -4,7 +4,6 @@
 
 <bundle:layout page="layouts/layout.jsp">
    <bundle:scriptpack>
-      <bundle:script src="${bundle.location}/js/confirmation.js" />
    </bundle:scriptpack>
   <bundle:variable name="head">
   <title>${text.escape(form.name)}</title>
@@ -62,4 +61,16 @@
     </section>
   
 </bundle:layout>
+
+<script>
+// Function which refreshes submission activity on page load
+$(function(){
+    setInterval(
+      function(){
+        $.get(bundle.kappLocation() + "?partial=taskActivity&submission_id=" + window.location.pathname.split('/')[4], function( data ) {
+            $('#submissionActivity').html(data).fadeIn();
+        });
+      }, 10000);
+});
+</script>
 
