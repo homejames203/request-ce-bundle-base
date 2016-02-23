@@ -52,7 +52,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>11</h3>
                     <p>My Assets</p>
                 </div>
                 <div class="icon">
@@ -66,7 +66,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>728</h3>
                     <p>Knowledge Base</p>
                 </div>
                 <div class="icon">
