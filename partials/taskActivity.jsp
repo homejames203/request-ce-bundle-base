@@ -16,19 +16,33 @@
         <!-- /.timeline-label -->
         <!-- timeline item -->
         <c:forEach var="task" items="${run.tasks}">
+            <c:set var="taskStatusIcon" value="fa-check-square-o bg-green"/>
+            <c:if test="${task.status eq 'Work In Progress'}">
+                <c:set var="taskStatusIcon" value="fa-wrench bg-yellow"/>
+            </c:if>
             <li>
-                <i class="fa fa-envelope bg-blue"></i>
+                <i class="fa ${taskStatusIcon}"></i>
                 <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i> ${text.escape(task.createdAt)}</span>
-                    <h3 class="timeline-header"><a href="#">${text.escape(task.name)}</a> FOO </h3>
+                    <span class="time"><i class="fa fa-clock-o"></i> Task Status: ${text.escape(task.status)} </span>
+                    <h3 class="timeline-header"><a href="#">${text.escape(task.name)}</a></h3>
                     <div class="timeline-body">
-                        <c:forEach var="entry" items="${task.messages}">
-                            <li>${text.escape(entry.message)}</li>
-                        </c:forEach>
-                    </div>
-                    <div class="timeline-footer">
-                        <a class="btn btn-primary btn-xs">Read more</a>
-                        <a class="btn btn-danger btn-xs">Delete</a>
+                        <dl>
+                            <dt>Started at: </dt>
+                            <dd>${text.escape(task.createdAt)} </dd>
+                            <dt>Last Updated at: </dt>
+                            <dd>${text.escape(task.updatedAt)} </dd>
+                        </dl>
+                        <c:if test="${not empty task.messages}">
+                            <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#messages-${task.id}">Read more</a>
+                            <div class="collapse" id="messages-${task.id}">
+                                <ul class="list-unstyled">
+                                    <li></li>
+                                    <c:forEach var="entry" items="${task.messages}">
+                                        <li>${text.escape(entry.message)} on ${text.escape(entry.date)}</li>
+                                    </c:forEach>
+                                </ul>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </li>

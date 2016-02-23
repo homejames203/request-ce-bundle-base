@@ -10,10 +10,17 @@
         </span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
-            <c:if test="${not empty kapp.getAttribute('logo-url')}">
-                <img src="${kapp.getAttribute('logo-url').value}" alt="logo">
+            <c:if test="${not empty kapp.getAttribute('Company Logo')}">
+              <c:choose>
+                <c:when test ="${fn:containsIgnoreCase(kapp.getAttribute('Company Logo').value, 'http')}">
+                  <img class="pull-left" src="${kapp.getAttribute('Company Logo').value}" alt="logo">
+                </c:when>
+                <c:otherwise>
+                  <img class="pull-left" src="${bundle.location}/${kapp.getAttribute('Company Logo').value}" alt="logo">
+                </c:otherwise>
+              </c:choose>
             </c:if>
-            <c:if test="${empty kapp.getAttribute('logo-url')}">
+            <c:if test="${empty kapp.getAttribute('Company Logo')}">
                 <i class="fa fa-home"></i> ${text.escape(kapp.name)}
             </c:if>
         </span>

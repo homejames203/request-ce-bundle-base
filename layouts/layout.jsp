@@ -17,7 +17,7 @@
             <bundle:style src="${bundle.location}/libraries/bootstrap/css/bootstrap.min.css" />
             <bundle:style src="${bundle.location}/libraries/jvectormap/jquery-jvectormap-1.2.2.css" />
             <bundle:style src="${bundle.location}/libraries/adminLTE/AdminLTE.min.css" />
-            <bundle:style src="${bundle.location}/libraries/adminLTE/skin-black-light.min.css" />
+            <bundle:style src="${bundle.location}/libraries/adminLTE/${kapp.getAttribute('Theme Skin').value}.min.css" />
             <bundle:style src="${bundle.location}/libraries/notifie/jquery.notifie.css" />
             <bundle:style src="${bundle.location}/css/custom.css "/>
         </bundle:stylepack>

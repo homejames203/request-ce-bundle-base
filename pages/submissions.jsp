@@ -57,6 +57,18 @@
                             </c:if>
                         </tr>
                         <c:forEach items="${submissionsList}" var="submission">
+                            <c:set var="statusColor" value="label-success"/>
+                            <c:choose> 
+                                <c:when test="${submission.coreState eq 'Draft'}">
+                                    <c:set var="statusColor" value="label-warning"/>
+                                </c:when>
+                                <c:when test="${submission.coreState eq 'Submitted'}">
+                                    <c:set var="statusColor" value="label-success"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:set var="statusColor" value="label-primary"/>
+                                </c:otherwise>
+                            </c:choose>
                             <tr>
                                 <td>${text.escape(submission.form.name)}</td>
                                 <td>
@@ -69,13 +81,13 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td>${submission.createdBy}</td>
-                                <td>${submission.createdAt}</td>
+                                <td>${space.getUser(submission.createdBy).displayName}</td>
+                                <td><fmt:formatDate type="date" value="${submission.createdAt}" dateStyle="medium"/></td>
                                 <c:if test="${type eq 'Approvals'}">
-                                    <td><span class="label label-success">${submission.getValue('Decision')}</span></td>
+                                    <td><span class="label ${statusColor}">${submission.getValue('Decision')}</span></td>
                                 </c:if>
                                 <c:if test="${type eq 'Requests'}">
-                                    <td><span class="label label-success">${submission.coreState}</span></td>
+                                    <td><span class="label ${statusColor}">${submission.coreState}</span></td>
                                 </c:if>
                             </tr>
                         </c:forEach>

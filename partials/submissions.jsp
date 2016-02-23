@@ -16,6 +16,18 @@
                     <th>Status</th>
                 </tr>
                 <c:forEach items="${submissionsList}" begin="0" end="4" var="submission">
+                    <c:set var="statusColor" value="label-success"/>
+                    <c:choose> 
+                        <c:when test="${submission.coreState eq 'Draft'}">
+                            <c:set var="statusColor" value="label-warning"/>
+                        </c:when>
+                        <c:when test="${submission.coreState eq 'Submitted'}">
+                            <c:set var="statusColor" value="label-success"/>
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="statusColor" value="label-primary"/>
+                        </c:otherwise>
+                    </c:choose>
                     <tr>
                         <td>${text.escape(submission.form.name)}</td>
                         <td>
@@ -30,7 +42,7 @@
                         </td>
                         <td>${space.getUser(submission.createdBy).displayName}</td>
                         <td><fmt:formatDate type="date" value="${submission.createdAt}" dateStyle="medium"/></td>
-                        <td><span class="label label-success">${submission.coreState}</span></td>
+                        <td><span class="label ${statusColor}">${submission.coreState}</span></td>
                     </tr>
                 </c:forEach>
             </tbody>

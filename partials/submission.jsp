@@ -28,6 +28,10 @@
                     <dd>${submission.coreState}</dd>
                 </dl>
                 <p>${submission.form.description}</p>
+                <div class="box-body">
+                    <a class="btn btn-info" href="${bundle.spaceLocation}/submissions/${submission.id}?review">Review Submitted Form</a>
+                    <a class="btn btn-primary" href="${bundle.spaceLocation}/${kapp.slug}/${submission.form.slug}">Request Again</a>
+                </div>
             </div>
         </div>
         <div class="col-md-8 col-xs-12 ">
@@ -39,6 +43,7 @@
 </section>
 
 <script>
+
 $(function(){
     setInterval(
       function(){

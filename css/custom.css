@@ -1,8 +1,10 @@
 .main-header .logo {
 	padding:0px;
+    background-color: rgb(0,51,102) !important;
+    border-right:0px !important;
 }
 .main-header .logo img {
-	max-width:230px;
+	max-width:186px;
 }
 
 section.content form div.radio,
