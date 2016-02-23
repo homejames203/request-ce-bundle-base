@@ -84,7 +84,17 @@
                                 <td>${space.getUser(submission.createdBy).displayName}</td>
                                 <td><fmt:formatDate type="date" value="${submission.createdAt}" dateStyle="medium"/></td>
                                 <c:if test="${type eq 'Approvals'}">
-                                    <td><span class="label ${statusColor}">${submission.getValue('Decision')}</span></td>
+                                    <c:if test="${submission.getValue('Decision') eq 'Approved'}">
+                                        <c:set var="statusColor" value="label-success"/>
+                                    </c:if>
+                                    <c:if test="${submission.getValue('Decision') eq 'Denied'}">
+                                        <c:set var="statusColor" value="label-danger"/>
+                                    </c:if>
+                                    <c:set var="approvalStatus" value="${submission.getValue('Decision')}"/>
+                                    <c:if test="${submission.coreState eq 'Draft'}">
+                                        <c:set var="approvalStatus" value="Pending Approval"/>
+                                    </c:if>
+                                    <td><span class="label ${statusColor}">${approvalStatus}</span></td>
                                 </c:if>
                                 <c:if test="${type eq 'Requests'}">
                                     <td><span class="label ${statusColor}">${submission.coreState}</span></td>

@@ -44,6 +44,17 @@
         return searchOptions;
     }
 
+    public Map<String,String[]> approvalAlertsQueryOptions() {
+        Identity identity = (Identity) request.getAttribute("identity");
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("values[Assigned Individual]", new String[] {identity.getUsername()});
+        searchOptions.put("limit", new String[] {"999"});
+        searchOptions.put("type", new String[] {"Approval"});
+        searchOptions.put("coreState", new String[] {"Draft"});
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
+
     public Map<String,String[]> submissionsQueryOptions(String formType) {
       Identity identity = (Identity) request.getAttribute("identity");
       Map<String,String[]> searchOptions = new HashMap<>();
