@@ -32,6 +32,10 @@ section.content section.box-footer button:not(:first-child){
     margin-left:20px;
 }
 
+section.content-header h1 {
+    white-space: pre-line;
+}
+
 .form-group.required .control-label:after, 
 .form-group .radio.required .control-label:after,
 .form-group .checkbox.required .control-label:after {

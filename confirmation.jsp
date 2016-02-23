@@ -50,7 +50,7 @@
           <div class="box box-primary">
             <div class="box-header">
               <i class="fa fa-search"></i>
-              <h3 class="box-title">Request Activity${submission.type.name}</h3>
+              <h3 class="box-title">Request Activity</h3>
             </div>
             <div id="submissionActivity" class="box-body">
               <c:import url="partials/taskActivity.jsp" charEncoding="UTF-8"></c:import>
