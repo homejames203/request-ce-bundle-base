@@ -10,7 +10,7 @@
         <!-- timeline time label -->
         <li class="time-label">
             <span class="bg-red">
-                ${submission.submittedAt}
+                <fmt:formatDate type="both" value="${submission.submittedAt}" dateStyle="medium"/>
             </span>
         </li>
         <!-- /.timeline-label -->
@@ -28,9 +28,11 @@
                     <div class="timeline-body">
                         <dl>
                             <dt>Started at: </dt>
-                            <dd>${text.escape(task.createdAt)} </dd>
+                            <dd><fmt:parseDate value="${task.createdAt}" var="taskCreatedAt" 
+                              pattern="MM/dd/yyyy HH:mm:ss" /><fmt:formatDate type="both" value="${taskCreatedAt}" dateStyle="medium"/></dd>
                             <dt>Last Updated at: </dt>
-                            <dd>${text.escape(task.updatedAt)} </dd>
+                            <dd><fmt:parseDate value="${task.updatedAt}" var="taskUpdatedAt" 
+                              pattern="MM/dd/yyyy HH:mm:ss" /><fmt:formatDate type="both" value="${taskUpdatedAt}" dateStyle="medium"/></dd>
                         </dl>
                         <c:if test="${not empty task.messages}">
                             <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#messages-${task.id}">Read more</a>
@@ -38,7 +40,8 @@
                                 <ul class="list-unstyled">
                                     <li></li>
                                     <c:forEach var="entry" items="${task.messages}">
-                                        <li>${text.escape(entry.message)} on ${text.escape(entry.date)}</li>
+                                        <li>${text.escape(entry.message)} on <fmt:parseDate value="${entry.date}" var="entryDate" 
+                              pattern="MM/dd/yyyy HH:mm:ss" /><fmt:formatDate type="both" value="${entryDate}" dateStyle="medium"/></li>
                                     </c:forEach>
                                 </ul>
                             </div>

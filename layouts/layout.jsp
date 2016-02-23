@@ -53,8 +53,11 @@
             </c:if>
         </style>
         <script>
-            <c:if test="${not empty kapp.getAttribute('logo-url')}">
-                bundle['logo'] = function(){ return "${kapp.getAttribute('logo-url').value}" };
+            <c:if test="${not empty kapp.getAttribute('Company Logo')}">
+                bundle['logo'] = function(){ return "${kapp.getAttribute('Company Logo').value}" };
+            </c:if>
+            <c:if test="${not empty kapp.getAttribute('Company Name')}">
+                bundle['logo'] = function(){ return "${kapp.getAttribute('Company Name').value}" };
             </c:if>
             bundle['urlParam'] = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
