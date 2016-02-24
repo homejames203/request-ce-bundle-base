@@ -40,8 +40,8 @@
                                 <ul class="list-unstyled">
                                     <li></li>
                                     <c:forEach var="entry" items="${task.messages}">
-                                        <li>${text.escape(entry.message)} on <fmt:parseDate value="${entry.date}" var="entryDate" 
-                              pattern="MM/dd/yyyy HH:mm:ss" /><fmt:formatDate type="both" value="${entryDate}" dateStyle="medium"/></li>
+                                        <li><fmt:parseDate value="${entry.date}" var="entryDate" 
+                              pattern="MM/dd/yyyy HH:mm:ss" /><fmt:formatDate type="both" value="${entryDate}" dateStyle="medium"/> -- ${text.escape(entry.message)}</li>
                                     </c:forEach>
                                 </ul>
                             </div>
