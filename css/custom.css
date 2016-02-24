@@ -73,4 +73,7 @@ img.formlogo{
     white-space: pre-line;
 }
 
-    
+.messages-menu a p {
+   white-space: normal;
+}
+    }
