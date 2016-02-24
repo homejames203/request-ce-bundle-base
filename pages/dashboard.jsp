@@ -2,11 +2,9 @@
 <%@include file="../bundle/initialization.jspf" %>
 
 <c:set var="totalSearchesFound" value="${fn:length(Submissions.searchByForm(kapp.getForm('portal-searches'), SubmissionHelper.searchResultsQueryOptions('true')))}"/>
-<c:set var="totalSearchesNotFound" value="${fn:length(Submissions.searchByForm(kapp.getForm('portal-searches'), SubmissionHelper.searchResultsQueryOptions('false')))}"/>
+<c:set var="searchesNotFound" value="${Submissions.searchByForm(kapp.getForm('portal-searches'), SubmissionHelper.searchResultsQueryOptions('false'))}"/>
+<c:set var="totalSearchesNotFound" value="${fn:length(searchesNotFound)}"/>
 <c:set var="totalSearches" value="${fn:length(Submissions.searchByForm(kapp.getForm('portal-searches'), SubmissionHelper.searchResultsQueryOptions('all')))}"/>
-
-
-
 
 <bundle:layout page="${bundle.path}/layouts/layout.jsp">
     <bundle:scriptpack>
@@ -39,7 +37,6 @@
                         <h3 class="box-title">Portal Search Activity</h3>
                     </div>
                     <div class="box-body">
-                    <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-6 text-center">
                             <input type="text" class="knob" value="${totalSearches}"  data-width="120" data-height="120" data-fgColor="#3c8dbc" data-readonly="true">
                             <div class="knob-label">Total Portal Searches</div>
@@ -56,9 +53,18 @@
                             <input type="text" class="knob" value="${totalSearchesFound*100/totalSearches}" data-width="140" data-height="140" data-fgColor="#932ab6" data-readonly="true">
                             <div class="knob-label"><b>% Searches with Results Found</b></div>
                         </div><!-- ./col -->
-                  </div><!-- /.row -->
-
-
+                    </div>
+                    <div class="box-body">
+                      <table class="table table-condensed">
+                        <tr>
+                          <th>Search Queries Not Found in Portal</th>
+                        </tr>
+                        <c:forEach var="search" items="${searchesNotFound}">
+                            <tr>
+                              <td>${search.getValue('Search Query')}</td>
+                            </tr>
+                        </c:forEach>
+                      </table>
                     </div>
                 </div>
             </section>
