@@ -25,8 +25,8 @@
     </c:if>
   </section>
     <section class="content page " data-page="${page.name}">
-      <c:set var="colClass" value="col-md-6"/>
-      <c:if test="${submission.form.type.name eq 'Approval'}">
+      <c:set var="colClass" value="col-md-12"/>
+      <c:if test="${submission.form.type.name eq 'Service'}">
         <c:set var="colClass" value="col-md-12"/>
       </c:if>
       <div class="${colClass}">
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-      <c:if test="${submission.form.type.name ne 'Approval'}">
+      <c:if test="${submission.form.type.name eq 'Service'}">
         <div class="col-md-6">
           <div class="box box-primary">
             <div class="box-header">
