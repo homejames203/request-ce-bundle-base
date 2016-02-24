@@ -27,7 +27,7 @@
     <section class="content page " data-page="${page.name}">
       <c:set var="colClass" value="col-md-12"/>
       <c:if test="${submission.form.type.name eq 'Service'}">
-        <c:set var="colClass" value="col-md-12"/>
+        <c:set var="colClass" value="col-md-6"/>
       </c:if>
       <div class="${colClass}">
         <div class="box box-primary">

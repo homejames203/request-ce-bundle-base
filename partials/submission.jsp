@@ -50,7 +50,7 @@ $(function(){
         $.get(bundle.kappLocation() + "?partial=taskActivity&submission_id=" + bundle.urlParam('submission_id'), function( data ) {
             $('#submissionActivity').html(data).fadeIn();
         });
-      }, 15000);
+      }, 90000);
 });
 </script>
 
