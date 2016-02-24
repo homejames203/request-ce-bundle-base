@@ -24,7 +24,7 @@
                 <i class="fa ${taskStatusIcon}"></i>
                 <div class="timeline-item">
                     <span class="time"><i class="fa fa-clock-o"></i> Task Status: ${text.escape(task.status)} </span>
-                    <h3 class="timeline-header"><a href="#">${text.escape(task.name)}</a></h3>
+                    <h3 class="timeline-header">${text.escape(task.name)}</h3>
                     <div class="timeline-body">
                         <dl>
                             <dt>Started at: </dt>
