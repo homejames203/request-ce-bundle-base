@@ -19,6 +19,7 @@
             <bundle:style src="${bundle.location}/libraries/adminLTE/AdminLTE.min.css" />
             <bundle:style src="${bundle.location}/libraries/adminLTE/${kapp.getAttribute('Theme Skin').value}.min.css" />
             <bundle:style src="${bundle.location}/libraries/notifie/jquery.notifie.css" />
+            <bundle:style src="${bundle.location}/libraries/jquery-datatables/jquery.dataTables.min.css" />
             <bundle:style src="${bundle.location}/css/custom.css "/>
         </bundle:stylepack>
         <link href="${bundle.location}/libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>

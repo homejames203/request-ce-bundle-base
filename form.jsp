@@ -3,6 +3,7 @@
 <bundle:layout page="layouts/form.jsp">
    <bundle:scriptpack>
       <bundle:script src="${bundle.location}/js/form.js" />
+      <bundle:script src="${bundle.location}/js/formTables.js" />
    </bundle:scriptpack>
    <bundle:variable name="head">
       <title>${text.escape(form.name)}</title>
