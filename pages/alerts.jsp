@@ -1,6 +1,6 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
-<c:set var="broadcastAlerts" value="${Submissions.searchByForm(space.getKapp('helper').getForm('broadcast-alerts'), SubmissionHelper.broadcastAlertsQueryOptions())}"/>
+<c:set var="broadcastAlerts" value="${SubmissionHelper.broadcastAlertsSubmissions()}"/>
 
 <bundle:layout page="${bundle.path}/layouts/layout.jsp">
     <bundle:variable name="head">
@@ -48,7 +48,7 @@
                                             <a href="${bundle.spaceLocation}/submissions/${submission.id}">${text.escape(submission.label)}</a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="${bundle.kappLocation}?submission_id=${submission.id}">${text.escape(submission.label)}</a>
+                                            <a href="${bundle.kappLocation}?page=submission&id=${submission.id}">${text.escape(submission.label)}</a>
                                         </c:otherwise>
                                     </c:choose>
                                 </td>

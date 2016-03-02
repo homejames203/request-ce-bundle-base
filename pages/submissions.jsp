@@ -2,11 +2,11 @@
 <%@include file="../bundle/initialization.jspf" %>
 <c:choose>
     <c:when test="${param['type'] eq 'approval'}">
-        <c:set scope="request" var="submissionsList" value="${Submissions.searchByKapp(kapp, SubmissionHelper.approvalsQueryOptions())}"/>
+        <c:set scope="request" var="submissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Approval', 999)}"/>
         <c:set scope="request" var="type" value="Approvals"/>
     </c:when>
     <c:otherwise>
-        <c:set scope="request" var="submissionsList" value="${Submissions.searchByKapp(kapp, SubmissionHelper.requestsQueryOptions())}"/>
+        <c:set scope="request" var="submissionsList" value="${SubmissionHelper.retrieveRecentSubmissions('Service', 999)}"/>
         <c:set scope="request" var="type" value="Requests"/>
     </c:otherwise>
 </c:choose>
@@ -77,7 +77,7 @@
                                             <a href="${bundle.spaceLocation}/submissions/${submission.id}">${text.escape(submission.label)}</a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="${bundle.kappLocation}?submission_id=${submission.id}">${text.escape(submission.label)}</a>
+                                            <a href="${bundle.kappLocation}?page=submission&id=${submission.id}">${text.escape(submission.label)}</a>
                                         </c:otherwise>
                                     </c:choose>
                                 </td>

@@ -7,7 +7,7 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
 
-<c:set var="formReviews" value="${Submissions.searchByForm(kapp.getForm('service-reviews'), SubmissionHelper.serviceReviewQueryOptions(form.slug))}"/>
+<c:set var="formReviews" value="${SubmissionHelper.serviceReviewSubmissions(form.slug)}"/>
 <c:set var="reviewsTotal" value="${0}"/>
 <c:forEach var="submission" items="${formReviews}">
     <c:set var="reviewsTotal" value="${reviewsTotal + submission.getValue('Rating')}" />

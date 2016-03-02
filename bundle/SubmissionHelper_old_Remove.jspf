@@ -1,0 +1,79 @@
+<%!
+    public static class SubmissionHelper {
+
+    private HttpServletRequest request;
+
+  	public SubmissionHelper(HttpServletRequest request) {
+  		this.request = request;
+  	}
+
+  	public Map<String,String[]> requestsQueryOptions() {
+          return submissionsQueryOptions("Service");
+  	}
+
+    public Map<String,String[]> approvalsQueryOptions() {
+        return submissionsQueryOptions("Approval");
+    }
+
+    public Map<String,String[]> searchResultsQueryOptions(String wasFound) {
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("limit", new String[] {"999"});
+        if( wasFound.equals("true") ) {
+          searchOptions.put("values[Results Found]", new String[] {"true"});
+        } 
+        if ( wasFound.equals("false") ) {
+          searchOptions.put("values[Results Found]", new String[] {"false"});
+        }
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
+    
+    public Map<String,String[]> serviceReviewQueryOptions(String formSlug) {
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("limit", new String[] {"999"});
+        searchOptions.put("values[Form Slug]", new String[] {formSlug});
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
+
+    public Map<String,String[]> broadcastAlertsQueryOptions() {
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("limit", new String[] {"999"});
+        searchOptions.put("values[Status]", new String[] {"Active"});
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
+
+    public Map<String,String[]> approvalAlertsQueryOptions() {
+        Identity identity = (Identity) request.getAttribute("identity");
+        Map<String,String[]> searchOptions = new HashMap<>();
+        searchOptions.put("values[Assigned Individual]", new String[] {identity.getUsername()});
+        searchOptions.put("limit", new String[] {"999"});
+        searchOptions.put("type", new String[] {"Approval"});
+        searchOptions.put("coreState", new String[] {"Draft"});
+        request.setAttribute("searchOptions", searchOptions);
+        return searchOptions;
+    }
+
+    public Map<String,String[]> submissionsQueryOptions(String formType) {
+      Identity identity = (Identity) request.getAttribute("identity");
+      Map<String,String[]> searchOptions = new HashMap<>();
+      if(formType == "Approval"){
+        searchOptions.put("values[Assigned Individual]", new String[] {identity.getUsername()});
+      } else {
+        searchOptions.put("createdBy", new String[] {identity.getUsername()});
+      }
+      request.setAttribute("searchOptions", searchOptions);
+      Calendar cal = Calendar.getInstance();
+      cal.add(Calendar.YEAR, -1);
+      Date start = cal.getTime();
+      cal.add(Calendar.YEAR, +2);
+      Date end = cal.getTime();
+      java.text.Format formatter = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'");
+      searchOptions.put("start", new String[] {formatter.format(start)} );
+      searchOptions.put("end", new String[] {formatter.format(end)} );
+      searchOptions.put("type", new String[] {formType});
+      return searchOptions;
+    }
+  }
+%>

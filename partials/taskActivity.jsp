@@ -2,7 +2,7 @@
 <%@include file="../bundle/initialization.jspf" %>
 <!-- The time line -->
 <c:if test="${empty submission}">
-	<c:set var="submission" value="${Submissions.retrieve(param.submission_id)}" scope="request"/>
+	<c:set var="submission" value="${Submissions.retrieve(param.id)}" scope="request"/>
 </c:if>
 
 <c:forEach var="run" items="${TaskRuns.find(submission)}">

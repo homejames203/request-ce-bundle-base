@@ -1,7 +1,8 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
-<c:set var="broadcastAlerts" value="${Submissions.searchByForm(space.getKapp('helper').getForm('broadcast-alerts'), SubmissionHelper.broadcastAlertsQueryOptions())}"/>
-<c:set var="pendingApprovals" value="${Submissions.searchByKapp(kapp, SubmissionHelper.approvalAlertsQueryOptions())}"/>
+
+<c:set var="broadcastAlerts" value="${SubmissionHelper.broadcastAlertsSubmissions()}"/>
+<c:set var="pendingApprovals" value="${SubmissionHelper.approvalAlertsSubmissions()}"/>
 <header class="main-header">
     <!-- Logo -->
     <a href="${bundle.kappLocation}" class="logo">

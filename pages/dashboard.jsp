@@ -1,10 +1,10 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="../bundle/initialization.jspf" %>
 
-<c:set var="totalSearchesFound" value="${fn:length(Submissions.searchByForm(kapp.getForm('portal-searches'), SubmissionHelper.searchResultsQueryOptions('true')))}"/>
-<c:set var="searchesNotFound" value="${Submissions.searchByForm(kapp.getForm('portal-searches'), SubmissionHelper.searchResultsQueryOptions('false'))}"/>
+<c:set var="totalSearchesFound" value="${fn:length(SubmissionHelper.searchResultsSubmissions('true'))}"/>
+<c:set var="searchesNotFound" value="${SubmissionHelper.searchResultsSubmissions('false')}"/>
 <c:set var="totalSearchesNotFound" value="${fn:length(searchesNotFound)}"/>
-<c:set var="totalSearches" value="${fn:length(Submissions.searchByForm(kapp.getForm('portal-searches'), SubmissionHelper.searchResultsQueryOptions('all')))}"/>
+<c:set var="totalSearches" value="${fn:length(SubmissionHelper.searchResultsSubmissions('all'))}"/>
 
 <bundle:layout page="${bundle.path}/layouts/layout.jsp">
     <bundle:scriptpack>
