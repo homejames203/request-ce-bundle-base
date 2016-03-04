@@ -30,13 +30,13 @@ request.setAttribute("category", category);
 
     <section class="content">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
             <c:forEach var="form" items="${kapp.getCategory(category).forms}">
                 <c:set var="form" scope="request" value="${form}"/>
                 <c:import url="${bundle.path}/partials/formCard.jsp" charEncoding="UTF-8"/>
             </c:forEach>
             </div>
-            <div class="col-md-4">
+            <div class="hidden">
                 <div class="box box-solid">
                     <div class="box-header with-border">
                         <h3 class="box-title">My ${text.escape(kapp.getCategory(category).name)} Tickets</h3>
