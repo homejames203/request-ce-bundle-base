@@ -13,16 +13,17 @@
         <link rel="icon" type="image/png" href="${bundle.location}/images/favicon-96x96.png" sizes="96x96">
         <link rel="icon" type="image/png" href="${bundle.location}/images/favicon-16x16.png" sizes="16x16">
         <link rel="shortcut icon" href="${bundle.location}/images/favicon.ico" type="image/x-icon"/>
+        <link href="${bundle.location}/libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <app:headContent/>
         <bundle:stylepack>
-            <bundle:style src="${bundle.location}/libraries/bootstrap/css/bootstrap.min.css" />
             <bundle:style src="${bundle.location}/libraries/jvectormap/jquery-jvectormap-1.2.2.css" />
             <bundle:style src="${bundle.location}/libraries/adminLTE/AdminLTE.min.css" />
             <bundle:style src="${bundle.location}/libraries/adminLTE/${kapp.getAttribute('Theme Skin').value}.min.css" />
             <bundle:style src="${bundle.location}/libraries/notifie/jquery.notifie.css" />
-            <bundle:style src="${bundle.location}/libraries/jquery-datatables/jquery.dataTables.min.css" />
             <bundle:style src="${bundle.location}/css/custom.css "/>
         </bundle:stylepack>
+        
+        <link href="${bundle.location}/libraries/jquery-datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="${bundle.location}/libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,6 +45,7 @@
             <bundle:script src="${bundle.location}/libraries/chartjs/Chart.min.js" />
             <bundle:script src="${bundle.location}/libraries/notifie/jquery.notifie.js" />
             <bundle:script src="${bundle.location}/libraries/jquery-datatables/jquery.dataTables.js" />
+            <bundle:script src="${bundle.location}/libraries/jquery-datatables/dataTables.bootstrap.js" />
             <bundle:script src="${bundle.location}/libraries/typeahead/typeahead.min.js" />
             <bundle:script src="${bundle.location}/js/catalog.js" />
             <bundle:script src="${bundle.location}/js/review.js" />

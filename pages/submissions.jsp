@@ -29,21 +29,12 @@
     </section>
 
     <section class="content">
-        <div class="box">
+        <div class="box box-primary">
             <div class="box-header">
-                <h3 class="box-title">My ${type}</h3>
-                <div class="box-tools">
-                    <div class="input-group" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
             </div><!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
-                    <tbody>
+            <div class="box-body">
+                <table class="table table-hover datatable">  
+                    <thead>
                         <tr>
                             <th>Item Requested</th>
                             <th>Details</th>
@@ -56,6 +47,8 @@
                                 <th>Status</th>
                             </c:if>
                         </tr>
+                    </thead>
+                    <tbody>
                         <c:forEach items="${submissionsList}" var="submission">
                             <c:set var="statusColor" value="label-success"/>
                             <c:choose> 
@@ -109,3 +102,20 @@
         </div>
     </section>
 </bundle:layout>
+
+<script>
+
+$(function(){
+  // Build Datatables if datatable class exists on a table. If empty, 
+  $('table.datatable').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": true,
+    "ordering": true,
+    "info": true,
+    "autoWidth": false
+  });
+  $('td.dataTables_empty').html('No ${type} found. Check back soon!');
+
+});
+</script>
