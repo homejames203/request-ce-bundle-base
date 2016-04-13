@@ -47,7 +47,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">${resourceBundle.getString("auth.login.submit")}</button>
+              <button id="submit" type="submit" class="btn btn-primary btn-block btn-flat">${resourceBundle.getString("auth.login.submit")}</button>
             </div>
         </form>
       </section>
