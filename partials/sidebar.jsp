@@ -59,7 +59,7 @@
 							</c:if>
 						</c:forEach>
 							<li <c:if test="${fn:contains(activePage,category.name)}">class="active ${hasSub}"</c:if> >
-								<a href="${bundle.kappLocation}?page=category&category=${text.escape(category.name)}">
+								<a href="${bundle.kappLocation}?page=category&category=${text.escape(category.slug)}">
 									<i class="fa ${category.getAttribute('fa-logo').value}"></i> 
 									<span>${text.escape(category.name)}</span>
 									<%-- If Subs exist, angle-left, otherwise show form count --%>
@@ -77,7 +77,7 @@
 										<c:forEach items="${kapp.categories}" var="subCategory">
 											<c:if test="${fn:startsWith(subCategory.name, category.name) && fn:containsIgnoreCase(subCategory.name,'---')}">
 												<li <c:if test="${activePage eq subCategory.name}">class="active"</c:if> >
-													<a href="${bundle.kappLocation}?page=category&category=${text.escape(subCategory.name)}">
+													<a href="${bundle.kappLocation}?page=category&category=${text.escape(subCategory.slug)}">
 														<i class="fa fa-circle-o"></i> <span>${fn:split(text.escape(subCategory.name),'---')[1]}</span>
 														<span class="label label-primary pull-right">${fn:length(subCategory.forms)}</span>
 													</a>

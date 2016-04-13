@@ -11,7 +11,7 @@
    </div><!-- /.box-header -->
    <div class="box-body">
       <ul class="products-list product-list-in-box">
-         <c:forEach var="popForm" begin="0" end="4" items="${kapp.getCategory('Popular Requests').forms}">
+         <c:forEach var="popForm" begin="0" end="4" items="${kapp.getCategory('popular-requests').forms}">
             <li class="item">
                <div class="product-img">
                   <img src="${bundle.location}/images/forms/${popForm.getAttributeValue('Image')}" alt="${text.escape(popForm.name)}">
