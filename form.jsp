@@ -1,6 +1,5 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" trimDirectiveWhitespaces="true"%>
 <%@include file="bundle/initialization.jspf" %>
-<script>debugger;</script>
 <c:choose>
     <c:when test="${identity.anonymous}">
         <c:set var="kapp" scope="request" value="${kapp}"/>
