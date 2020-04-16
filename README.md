@@ -1,4 +1,6 @@
 ## Overview
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhomejames203%2Frequest-ce-bundle-adminlte.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhomejames203%2Frequest-ce-bundle-adminlte?ref=badge_shield)
+
 This bundle is used internally by Kinetic Request CE and is a good starting point to build out your own bundles.
 
 It includes the default:
@@ -53,3 +55,7 @@ This default bundle uses our standard directory structure.  Bundles are complete
   /*resetPassword.jsp*: The default reset password page. This will trigger the system to send an email to the user to reset their password. Note that the SMTP server needs to be configured to work.
   /*space.jsp*: A page that displays a list of KAPPs (often request catalogs) that you have access to within your space.
 </pre></code>
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhomejames203%2Frequest-ce-bundle-adminlte.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhomejames203%2Frequest-ce-bundle-adminlte?ref=badge_large)
